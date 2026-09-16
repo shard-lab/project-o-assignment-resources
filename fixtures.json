@@ -1,0 +1,222 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-09-16T09:00:00Z",
+  "data_class": "synthetic_fixture",
+  "notes": [
+    "A referral relationship does not prove acquisition causality.",
+    "A chain receipt does not prove final trading collateral.",
+    "A client sighting snapshot cannot be used to calculate retention."
+  ],
+  "wallet_observations": [
+    {
+      "wallet_id": "wallet-source-a",
+      "user_id": "user-a",
+      "address_display": "0xSOURCE...A102",
+      "observed_roles": ["login", "funding_source"],
+      "chain_id": 42161,
+      "wallet_type": "external_eoa",
+      "user_can_sign": true,
+      "gas_sponsorship": "not_assumed"
+    },
+    {
+      "wallet_id": "wallet-execution-a",
+      "user_id": "user-a",
+      "address_display": "0xSMART...B204",
+      "observed_roles": ["execution"],
+      "chain_id": 42161,
+      "wallet_type": "smart_account",
+      "user_can_sign": false,
+      "gas_sponsorship": "policy_eligible"
+    },
+    {
+      "wallet_id": "wallet-trading-a",
+      "user_id": "user-a",
+      "address_display": "0xTRADE...C306",
+      "observed_roles": ["trading_account"],
+      "chain_id": "hypercore",
+      "wallet_type": "embedded_signer_context",
+      "user_can_sign": true,
+      "gas_sponsorship": "not_applicable"
+    },
+    {
+      "wallet_id": "wallet-login-b",
+      "user_id": "user-b",
+      "address_display": "0xLOGIN...E510",
+      "observed_roles": ["login"],
+      "chain_id": 1,
+      "wallet_type": "external_eoa",
+      "user_can_sign": true,
+      "gas_sponsorship": "none"
+    },
+    {
+      "wallet_id": "wallet-source-b",
+      "user_id": "user-b",
+      "address_display": "0xSOURCE...D408",
+      "observed_roles": ["funding_source"],
+      "chain_id": 1,
+      "wallet_type": "external_eoa",
+      "user_can_sign": true,
+      "gas_sponsorship": "none"
+    }
+  ],
+  "balance_observations": [
+    {
+      "observation_id": "balance-001",
+      "wallet_id": "wallet-source-a",
+      "system": "evm_rpc_fixture",
+      "chain_id": 42161,
+      "asset": "USDC",
+      "amount": "142.38",
+      "status": "success",
+      "observed_at": "2026-09-16T08:59:01Z"
+    },
+    {
+      "observation_id": "balance-002",
+      "wallet_id": "wallet-trading-a",
+      "system": "trading_account_fixture",
+      "chain_id": "hypercore",
+      "account_mode": "unified_account",
+      "asset": "USDC",
+      "amount": "0.00",
+      "hold": "0.00",
+      "status": "success",
+      "observed_at": "2026-09-16T08:59:12Z"
+    },
+    {
+      "observation_id": "balance-003",
+      "wallet_id": "wallet-trading-a",
+      "system": "trading_account_fixture",
+      "chain_id": "hypercore",
+      "account_mode": "unified_account",
+      "asset": "USDC",
+      "amount": "98.25",
+      "hold": "0.00",
+      "status": "success",
+      "observed_at": "2026-09-16T09:02:44Z"
+    },
+    {
+      "observation_id": "balance-004",
+      "wallet_id": "wallet-source-b",
+      "system": "evm_rpc_fixture",
+      "chain_id": 1,
+      "asset": "USDC",
+      "amount": null,
+      "status": "rpc_timeout",
+      "observed_at": "2026-09-16T08:59:07Z"
+    }
+  ],
+  "quote_observations": [
+    {
+      "quote_id": "quote-001",
+      "purpose": "candidate_poc_example_only",
+      "observed_in_current_product": false,
+      "source_wallet_id": "wallet-source-a",
+      "destination_wallet_id": "wallet-trading-a",
+      "source_chain_id": 42161,
+      "source_asset": "USDC",
+      "destination": "trading_collateral",
+      "amount_in": "100.00",
+      "expected_amount_out": "98.25",
+      "minimum_amount_out": "97.75",
+      "expires_at": "2026-09-16T09:02:21Z",
+      "provider_status": "quote_available"
+    },
+    {
+      "quote_id": "quote-002",
+      "purpose": "candidate_poc_error_example",
+      "observed_in_current_product": false,
+      "source_wallet_id": "wallet-source-b",
+      "destination_wallet_id": "wallet-trading-a",
+      "source_chain_id": 1,
+      "source_asset": "UNSUPPORTED_FIXTURE_ASSET",
+      "destination": "trading_collateral",
+      "amount_in": "250.00",
+      "expected_amount_out": null,
+      "minimum_amount_out": null,
+      "expires_at": null,
+      "provider_status": "no_route"
+    }
+  ],
+  "transaction_observations": [
+    {
+      "transaction_id": "transaction-001",
+      "request_id": "request-001",
+      "wallet_id": "wallet-source-a",
+      "chain_id": 42161,
+      "tx_hash_display": "0xTX_SUCCESS_FIXTURE",
+      "submitted_at": "2026-09-16T09:00:11Z",
+      "receipt_observed_at": "2026-09-16T09:00:22Z",
+      "receipt_status": "success",
+      "amount_sent": "100.00",
+      "asset": "USDC"
+    },
+    {
+      "transaction_id": "transaction-002",
+      "request_id": "request-002",
+      "wallet_id": "wallet-source-b",
+      "chain_id": 1,
+      "tx_hash_display": "0xTX_REVERTED_FIXTURE",
+      "submitted_at": "2026-09-16T09:10:00Z",
+      "receipt_observed_at": "2026-09-16T09:10:12Z",
+      "receipt_status": "reverted",
+      "amount_sent": "0.00",
+      "asset": "USDC"
+    }
+  ],
+  "event_observations": [
+    {
+      "event_id": "event-001",
+      "event_type": "referral_relation_recorded",
+      "user_id": "user-a",
+      "referral_id": "referral-a",
+      "occurred_at": "2026-09-10T10:11:00Z"
+    },
+    {
+      "event_id": "event-002",
+      "event_type": "chain_receipt_observed",
+      "request_id": "request-001",
+      "wallet_id": "wallet-source-a",
+      "transaction_id": "transaction-001",
+      "occurred_at": "2026-09-16T09:00:22Z"
+    },
+    {
+      "event_id": "event-003",
+      "event_type": "collateral_balance_observed",
+      "request_id": "request-001",
+      "wallet_id": "wallet-trading-a",
+      "balance_observation_id": "balance-003",
+      "occurred_at": "2026-09-16T09:02:44Z"
+    },
+    {
+      "event_id": "event-004",
+      "event_type": "client_sighting_snapshot",
+      "user_id": "user-a",
+      "platform": "web",
+      "first_seen": "2026-09-10T10:10:00Z",
+      "last_seen": "2026-09-16T08:58:00Z",
+      "seen_count": 5
+    },
+    {
+      "event_id": "event-005",
+      "event_type": "fill_observed",
+      "user_id": "user-a",
+      "wallet_id": "wallet-trading-a",
+      "order_id": "order-001",
+      "market": "BTC",
+      "side": "buy",
+      "price": "101800.00",
+      "size": "0.00140",
+      "occurred_at": "2026-09-16T09:10:00Z"
+    }
+  ],
+  "referral_context": [
+    {
+      "referral_id": "referral-a",
+      "referrer_id": "affiliate-a",
+      "referred_user_id": "user-a",
+      "relationship_created_at": "2026-09-10T10:11:00Z",
+      "content_touch": null,
+      "causal_attribution": "unknown"
+    }
+  ]
+}
