@@ -2,7 +2,9 @@
 
 Project O 제품 과제에 제공되는 참고 자료입니다. 과제 안내문을 기준으로 사용해 주세요.
 
-배포가 완료되면 이 위치에 Production URL을 추가해 주세요.
+**[브라우저에서 자료 보기](https://project-o-assignment-resources.vercel.app)**
+
+`fixtures.json`만 필요하면 [여기서 바로 받으세요](https://project-o-assignment-resources.vercel.app/fixtures.json).
 
 ## 포함된 자료
 
